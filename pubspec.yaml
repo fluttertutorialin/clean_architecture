@@ -1,0 +1,45 @@
+name: vendor
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+  flutter: ">=2.10.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  get:
+  get_storage:
+
+  cupertino_icons:
+  connectivity_plus:
+  logger:
+  equatable:
+  json_annotation:
+  google_fonts:
+  line_icons:
+  flutter_phone_direct_caller:
+  maps_launcher:
+  intl:
+  qr_code_scanner:
+  dio_helper_flutter: 1.0.13
+  dartz:
+  dio:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints:
+  json_serializable:
+  build_runner:
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/image/

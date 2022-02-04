@@ -1,0 +1,13 @@
+export 'splash_page.dart';
+export 'login_username_page.dart';
+export 'login_mobile_page.dart';
+export 'otp_verify_page.dart';
+export 'list_device_page.dart';
+export 'new_device_add.dart';
+export 'new_vendor_add.dart';
+export 'home_page.dart';
+export 'pick_up_page.dart';
+export 'return_page.dart';
+export 'history_page.dart';
+export 'qr_code_scanner_page.dart';
+export 'vendor_visit_page.dart';

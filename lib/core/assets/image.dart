@@ -1,0 +1,1 @@
+const String applicationLogoAsset = 'assets/image/application_logo.png';
