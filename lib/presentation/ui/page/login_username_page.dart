@@ -15,7 +15,7 @@ class LoginUserNamePage extends GetView<LoginController> {
         body: SingleChildScrollView(
             child: Column(children: [
       SizedBox(height: Get.height / 4),
-      Text('Mobex Procurement',
+      Text('Application',
           style: Get.textTheme.headline5!
               .copyWith(color: Get.theme.primaryColor, fontSize: 22)),
       const SizedBox(height: 50),
