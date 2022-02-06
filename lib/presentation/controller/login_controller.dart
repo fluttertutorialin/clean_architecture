@@ -16,6 +16,9 @@ class LoginController extends GetxController {
   late TextEditingController userNameController = TextEditingController();
   String get userName => userNameController.text;
 
+  //VALIDATION
+  final formKey = GlobalKey<FormState>();
+
   void _loginGetData() {
     _loginGet
         .login(
@@ -36,8 +39,13 @@ class LoginController extends GetxController {
   }
 
   //VALIDATION
-  void validation() {
-    _loginGetData();
+  loginValidate() {
+    switch (formKey.currentState!.validate()) {
+      case true:
+        formKey.currentState!.save();
+        _loginGetData();
+        break;
+    }
   }
 
   @override

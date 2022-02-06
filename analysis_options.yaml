@@ -6,3 +6,4 @@ linter:
     avoid_print: false
     prefer_single_quotes: true
     curly_braces_in_flow_control_structures: false
+    prefer_foreach: true

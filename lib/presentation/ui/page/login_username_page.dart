@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/constant/constant.dart';
 import '../../controller/controller.dart';
 import '../../../core/route/route_name.dart';
 import '../../../core/theme/color.dart';
@@ -13,36 +14,43 @@ class LoginUserNamePage extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-            child: Column(children: [
-      SizedBox(height: Get.height / 4),
-      Text('Clean Architecture',
-          style: Get.textTheme.headline5!
-              .copyWith(color: Get.theme.primaryColor, fontSize: 22)),
-      const SizedBox(height: 50),
-      Text('Please sign in continues...',
-          style: Get.textTheme.caption!.copyWith(fontSize: 14)),
-      const SizedBox(height: 15),
-      TextFieldComponent(
-          labelText: 'Username', controller: controller.userNameController),
-      const SizedBox(height: 15),
-      TextFieldComponent(
-          labelText: 'Password', controller: controller.passwordController),
-      const SizedBox(height: 5),
-      _loginButtonWidget(),
-      Align(
-          alignment: Alignment.topRight,
-          child: InkWell(
-              child: Text('Login with mobile',
-                      style: Get.textTheme.headline3!.copyWith(fontSize: 14))
-                  .paddingOnly(top: 5, bottom: 5, left: 3, right: 3),
-              onTap: () {
-                Get.toNamed(RouteName.loginMobileRoute);
-              }))
-    ]).paddingAll(15)));
+            child: Form(
+                autovalidateMode: loginFormAutoValidateMode,
+                key: controller.formKey,
+                child: Column(children: [
+                  SizedBox(height: Get.height / 4),
+                  Text('Clean Architecture',
+                      style: Get.textTheme.headline5!.copyWith(
+                          color: Get.theme.primaryColor, fontSize: 22)),
+                  const SizedBox(height: 50),
+                  Text('Please sign in continues...',
+                      style: Get.textTheme.caption!.copyWith(fontSize: 14)),
+                  const SizedBox(height: 15),
+                  TextFieldComponent(
+                      labelText: 'Username',
+                      controller: controller.userNameController),
+                  const SizedBox(height: 15),
+                  TextFieldComponent(
+                      labelText: 'Password',
+                      controller: controller.passwordController),
+                  const SizedBox(height: 5),
+                  _loginButtonWidget(),
+                  Align(
+                      alignment: Alignment.topRight,
+                      child: InkWell(
+                          child: Text('Login with mobile',
+                                  style: Get.textTheme.headline3!
+                                      .copyWith(fontSize: 14))
+                              .paddingOnly(
+                                  top: 5, bottom: 5, left: 3, right: 3),
+                          onTap: () {
+                            Get.toNamed(RouteName.loginMobileRoute);
+                          }))
+                ]).paddingAll(15))));
   }
 
   _loginButtonWidget() => FormButtonComponent(
-        onPressed: () => controller.validation(),
+        onPressed: () => controller.loginValidate(),
         color: Get.theme.primaryColor,
         text: Text('SUBMIT',
             style: Get.textTheme.headline2!
