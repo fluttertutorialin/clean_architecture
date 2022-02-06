@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/route/route_name.dart';
+import '../../data/usecases/login_remote.dart';
 import '../../domain/usecases/usecases.dart';
 import '../../core/extension/extension.dart';
 
 class LoginController extends GetxController {
   //CONSTRUCTOR
-  final LoginGet _loginGet;
-  LoginController(this._loginGet);
+  final LoginRemote _loginRemote;
+  LoginController(this._loginRemote);
 
   //INIT AND GET
   late TextEditingController passwordController = TextEditingController();
@@ -19,23 +20,26 @@ class LoginController extends GetxController {
   //VALIDATION
   final formKey = GlobalKey<FormState>();
 
-  void _loginGetData() {
-    _loginGet
-        .login(
-            parameter: LoginParameter(userName: userName, password: password))
-        .then((value) {
-      var loginDetail = value.loginDetailList?[0];
+  Future<void> _loginGetData() async {
+    final loginEither = await _loginRemote
+        .call(LoginParameter(userName: userName, password: password));
 
-      //SESSION STORE
-      _loginGet.userNameWriteSession(loginDetail!.userName!);
-      _loginGet.loginInTimeWriteSession('${DateTime.now()}');
-      _loginGet.isLoginWriteSession(true);
+    loginEither.fold(
+      (error) {
+        toast(title: 'Login', message: error.message!);
+      },
+      (response) async {
+        var loginDetail = response.loginDetailList?[0];
 
-      //LOGIN SUCCESS NAVIGATION
-      Get.offAllNamed(RouteName.dashboardRoute);
-    }).catchError((error) {
-      toast(title: 'Login', message: error.errorLanguageEntity!.defaultLanguage);
-    });
+        //SESSION STORE
+        _loginRemote.userNameWriteSession(loginDetail!.userName!);
+        _loginRemote.loginInTimeWriteSession('${DateTime.now()}');
+        _loginRemote.isLoginWriteSession(true);
+
+        //LOGIN SUCCESS NAVIGATION
+        Get.offAllNamed(RouteName.dashboardRoute);
+      },
+    );
   }
 
   //VALIDATION

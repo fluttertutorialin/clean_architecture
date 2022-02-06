@@ -25,7 +25,7 @@ class DependencyInjection {
     Get.lazyPut<RemoteDataSource>(() => RemoteDataSourceImpl(Get.find()), fenix: true);
 
     //CONTROLLER PASS DATA BINDING
-    Get.lazyPut<LoginGet>(() => LoginRemote(Get.find(), Get.find()), fenix: true);
+    Get.lazyPut<LoginRemote>(() => LoginRemote(Get.find(), Get.find()), fenix: true);
     Get.lazyPut<SplashGet>(() => SplashRemote(Get.find()), fenix: true);
     Get.lazyPut<DashboardGet>(() => DashboardRemote(Get.find(), Get.find()), fenix: true);
     Get.lazyPut<ProfileGet>(() => ProfileRemote(Get.find(), Get.find()), fenix: true);

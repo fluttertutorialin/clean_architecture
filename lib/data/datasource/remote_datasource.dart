@@ -1,9 +1,12 @@
+import 'package:dartz/dartz.dart';
+import 'package:dio_helper_flutter/dio_helper.dart';
 import '../../core/constant/constant.dart';
+import '../../core/error/error.dart';
 import '../model/model.dart';
 import '../repository/repository.dart';
 
 abstract class RemoteDataSource {
-  Future<LoginModel> login({required Map<String, dynamic> parameter});
+  Future<Either<Failure, LoginModel>> login({required Map<String, dynamic> parameter});
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -11,13 +14,24 @@ class RemoteDataSourceImpl extends RemoteDataSource {
 
   RemoteDataSourceImpl(this._apiProviderImpl);
 
-  Future<LoginModel> _loginApi({required Map<String, dynamic> param}) =>
-      _apiProviderImpl
-          .postApi(loginUrl, queryParameters: param, header: headers)
-          .then((value) => LoginModel.fromJson(value));
+  Future<LoginModel> _loginApi(
+      {required Map<String, dynamic> parameter}) async {
+    final response = await _apiProviderImpl.postApi(loginUrl,
+        queryParameters: parameter, header: headers);
+    return LoginModel.fromJson(response);
+  }
 
   @override
-  Future<LoginModel> login({required Map<String, dynamic> parameter}) {
-    return _loginApi(param: parameter);
+  Future<Either<Failure, LoginModel>> login(
+      {required Map<String, dynamic> parameter}) async {
+    try {
+      final response = await _loginApi(parameter: parameter);
+      return Right(response);
+    } catch (error) {
+      var getError = error as DioErrorEntity;
+      return Left(Failure(
+          code: getError.statusCode!,
+          message: getError.errorLanguageEntity?.defaultLanguage!));
+    }
   }
 }
