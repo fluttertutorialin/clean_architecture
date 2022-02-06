@@ -24,22 +24,16 @@ class LoginRemote extends UseCase<LoginEntity, LoginParameter> {
   LoginRemote(this._remoteDataSource, this._sessionDataSource);
 
   @override
-  Future<Either<Failure, LoginEntity>> call(
-    LoginParameter parameter,
-  ) async {
-    return await _remoteDataSource.login(parameter: parameter.toJson());
-  }
+  Future<Either<Failure, LoginEntity>> call(LoginParameter parameter)
+  async => await _remoteDataSource.login(parameter: parameter.toJson());
 
   bool isLoginReadSession() => _sessionDataSource.isLoginRead();
 
-  void isLoginWriteSession(bool value) =>
-      _sessionDataSource.isLoginWrite(value);
+  void isLoginWriteSession(bool value) => _sessionDataSource.isLoginWrite(value);
 
   String userNameReadSession() => _sessionDataSource.userNameRead();
 
-  void userNameWriteSession(String value) =>
-      _sessionDataSource.userNameWrite(value);
+  void userNameWriteSession(String value) => _sessionDataSource.userNameWrite(value);
 
-  void loginInTimeWriteSession(String value) =>
-      _sessionDataSource.loginInTimeWrite(value);
+  void loginInTimeWriteSession(String value) => _sessionDataSource.loginInTimeWrite(value);
 }

@@ -14,16 +14,11 @@ class RemoteDataSourceImpl extends RemoteDataSource {
 
   RemoteDataSourceImpl(this._apiProviderImpl);
 
-  Future<LoginModel> _loginApi(
-      {required Map<String, dynamic> parameter}) async {
-    final response = await _apiProviderImpl.postApi(loginUrl,
-        queryParameters: parameter, header: headers);
-    return LoginModel.fromJson(response);
-  }
+  Future<LoginModel> _loginApi({required Map<String, dynamic> parameter}) async =>
+      LoginModel.fromJson(await _apiProviderImpl.postApi(loginUrl, queryParameters: parameter, header: headers));
 
   @override
-  Future<Either<Failure, LoginModel>> login(
-      {required Map<String, dynamic> parameter}) async {
+  Future<Either<Failure, LoginModel>> login({required Map<String, dynamic> parameter}) async {
     try {
       final response = await _loginApi(parameter: parameter);
       return Right(response);
