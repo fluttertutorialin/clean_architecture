@@ -11,11 +11,10 @@ class LoginModel extends LoginEntity {
   }) : super(message: message, loginDetailList: loginDetailList);
 
   factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
-        message: json[messageJsonKey],
-        loginDetailList: List<LoginDetailModel>.from(
-            json[dataJsonKey].map((value) => LoginDetailModel.fromJson(value))),
-        statusCode: json[statusCodeJsonKey],
-      );
+      message: json[messageJsonKey],
+      loginDetailList: List<LoginDetailModel>.from(
+          json[dataJsonKey].map((value) => LoginDetailModel.fromJson(value))),
+      statusCode: json[statusCodeJsonKey]);
 }
 
 class LoginDetailModel extends LoginDetailEntity {
