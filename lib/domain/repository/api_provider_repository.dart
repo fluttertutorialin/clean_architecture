@@ -7,7 +7,7 @@ import 'package:dio/dio.dart' as dio;
 
 abstract class ApiProviderRepository {
   //GET API
-  Future getApi(String pathUrl, {Map<String, dynamic>? queryParameters});
+  Future getApi(String pathUrl, {Map<String, dynamic>? queryParameter});
 
   //POST API
   Future postApi(String pathUrl,
@@ -15,4 +15,7 @@ abstract class ApiProviderRepository {
 
   //IMAGE UPLOAD POST
   Future imageUpload(String pathUrl, {required dio.FormData formData});
+
+  void imageUploadMap(String pathUrl,
+      {Map<String, dynamic>? imageUploadParameter});
 }
