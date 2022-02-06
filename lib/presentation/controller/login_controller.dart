@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/route/route_name.dart';
 import '../../data/usecases/login_remote.dart';
-import '../../domain/usecases/usecases.dart';
 import '../../core/extension/extension.dart';
 
 class LoginController extends GetxController {
