@@ -28,4 +28,7 @@ class LoginDetailEntity extends Equatable {
 
   @override
   List<Object> get props => [userId!, userName!, employeeId!];
+
+  @override
+  bool get stringify => true;
 }
