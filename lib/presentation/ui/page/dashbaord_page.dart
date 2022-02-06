@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
+import '../../../core/assets/image.dart';
+import '../../controller/controller.dart';
 import '../../../core/route/route_name.dart';
 import '../../../core/theme/color.dart';
 import '../widget/form_button_component.dart';
 
-class DashBoardPage extends StatelessWidget {
+class DashBoardPage extends GetView<DashboardController> {
   const DashBoardPage({Key? key}) : super(key: key);
 
   @override
@@ -22,7 +24,7 @@ class DashBoardPage extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   stackedCardBackground(Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 20, horizontal: 20),
@@ -31,41 +33,36 @@ class DashBoardPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Row(children: [
-                                Container(
-                                    width: 48,
-                                    height: 48,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8.0),
-                                        image: const DecorationImage(
-                                            fit: BoxFit.fitHeight,
-                                            image: NetworkImage(
-                                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCkAMBLJMV2zScXlokpLpjnWZ65ve6OHJ8vg&usqp=CAU')),
-                                        boxShadow: [
-                                          BoxShadow(
-                                              spreadRadius: 1.0,
-                                              color: Colors.deepOrange[700]!,
-                                              blurRadius: 2)
-                                        ])),
+                                InkWell(
+                                  child: const CircleAvatar(
+                                      backgroundImage: AssetImage(profileAsset),
+                                      backgroundColor: whiteColor),
+                                  onTap: () {
+                                    Get.toNamed(RouteName.profileRoute);
+                                  },
+                                ),
                                 const SizedBox(width: 20),
                                 Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: const [
-                                      Text('Welcome to',
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text('Welcome to',
                                           style: TextStyle(
                                               color: Colors.white,
-                                               fontSize: 15,
+                                              fontSize: 15,
                                               fontWeight: FontWeight.bold)),
-                                      SizedBox(height: 2.0),
-                                      Text('Kamlesh',
-                                          style: TextStyle(color: Colors.white60, fontSize: 15))
+                                      const SizedBox(height: 2.0),
+                                      Text(controller.userName,
+                                          style: const TextStyle(
+                                              color: Colors.white60,
+                                              fontSize: 15))
                                     ])
                               ]),
                               CircleAvatar(
-                                backgroundColor: Colors.deepOrange,
+                                  backgroundColor: Colors.deepOrange,
                                   child: IconButton(
                                       icon: const Icon(LineIcons.history,
-                                          size: 20,
-                                          color: Colors.white),
+                                          size: 20, color: Colors.white),
                                       onPressed: () {}))
                             ]),
                         const SizedBox(height: 20),
@@ -78,7 +75,6 @@ class DashBoardPage extends StatelessWidget {
                                 child: const Text('4th December | 22 Days left',
                                     style: TextStyle(color: Colors.white))))
                       ]))),
-
                   const SizedBox(height: 20),
                   Expanded(
                       child: SingleChildScrollView(
@@ -396,16 +392,15 @@ class DashBoardPage extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            left: 15,
-            bottom: 8,
-            height: 175,
-            width: 310,
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.deepOrange[800]?.withAlpha(100),
-                  borderRadius: BorderRadius.circular(16)),
-            )
-          ),
+              left: 15,
+              bottom: 8,
+              height: 175,
+              width: 310,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.deepOrange[800]?.withAlpha(100),
+                    borderRadius: BorderRadius.circular(16)),
+              )),
           Positioned(
             left: 30,
             bottom: 0,

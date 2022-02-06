@@ -9,6 +9,7 @@ abstract class LoginGet {
   void userNameWriteSession(String value);
   bool isLoginReadSession();
   void isLoginWriteSession(bool value);
+  void loginInTimeWriteSession(String value);
 }
 
 class LoginParameter {

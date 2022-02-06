@@ -5,9 +5,9 @@ Create Date: 24-11-21 3:41
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/assets/assets.dart';
 import '../../controller/controller.dart';
 import '../../../core/theme/color.dart';
-import '../../../core/assets/icon.dart';
 import '../widget/form_button_component.dart';
 
 class HistoryPage extends GetView<VisitHistoryController> {

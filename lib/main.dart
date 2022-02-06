@@ -16,7 +16,8 @@ void main() async {
   await Get.putAsync(() => GetStorage.init());
   DependencyInjection.init();
 
-  SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+  SystemUiOverlayStyle systemUiOverlayStyle =
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent);
   SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
 
   APiKey.baseUrlKey = baseUrl;
@@ -30,16 +31,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      locale: SettingsController().getLocale(),
-      themeMode: SettingsController().getThemeMode(),
-      theme: lightTheme,
-      darkTheme: darkTheme,
-      translations: Translation(),
-      fallbackLocale: const Locale('en'),
-      initialBinding: GlobalBinding(),
-      initialRoute: RouteName.slashRoute, //FIRST TIME WHICH LAUNCH SCREEN
-      getPages: RouteCollection.routeCollection //COLLECTION OF ROUTES
-    );
+        debugShowCheckedModeBanner: false,
+        locale: SettingsController().getLocale(),
+        themeMode: SettingsController().getThemeMode(),
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        translations: Translation(),
+        fallbackLocale: const Locale('en'),
+        initialBinding: GlobalBinding(),
+        initialRoute: RouteName.slashRoute, //FIRST TIME WHICH LAUNCH SCREEN
+        getPages: RouteCollection.routeCollection //COLLECTION OF ROUTES
+        );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
-import '../../../core/assets/icon.dart';
+import '../../../core/assets/assets.dart';
 import '../../../core/route/route_name.dart';
 import '../../../core/theme/color.dart';
 import '../widget/form_button_component.dart';

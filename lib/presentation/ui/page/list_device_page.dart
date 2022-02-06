@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import '../widget/category_list_item.dart';
-import '../../../core/assets/icon.dart';
+import '../../../core/assets/assets.dart';
 import '../../../core/route/route_name.dart';
 import '../../../core/theme/color.dart';
 

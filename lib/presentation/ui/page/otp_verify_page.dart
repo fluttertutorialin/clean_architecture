@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../core/route/route_name.dart';
 import '../../../core/theme/color.dart';
 import '../widget/form_button_component.dart';
 import '../widget/text_field_component.dart';
@@ -37,12 +36,10 @@ class OtpVerifyPage extends StatelessWidget {
   }
 
   final _optVerifyButtonWidget = FormButtonComponent(
-    onPressed: () {
-      Get.offAllNamed(RouteName.dashboardRoute);
-    },
+    onPressed: () {},
     color: Get.theme.primaryColor,
     text: Text('SUBMIT',
         style:
-        Get.textTheme.headline2!.copyWith(color: whiteColor, fontSize: 14)),
+            Get.textTheme.headline2!.copyWith(color: whiteColor, fontSize: 14)),
   ).paddingSymmetric(vertical: 10.0);
 }

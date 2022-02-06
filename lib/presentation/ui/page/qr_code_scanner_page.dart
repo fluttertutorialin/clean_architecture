@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import '../../../core/assets/icon.dart';
+import '../../../core/assets/assets.dart';
 import '../../../core/theme/color.dart';
 
 class QRCodeScannerPage extends StatefulWidget {

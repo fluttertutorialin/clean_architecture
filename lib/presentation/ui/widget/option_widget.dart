@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:get/get.dart';
 import 'package:maps_launcher/maps_launcher.dart';
-import '../../../core/assets/icon.dart';
+import '../../../core/assets/assets.dart';
 import '../../../core/theme/color.dart';
 
 class OptionWidget extends StatelessWidget {

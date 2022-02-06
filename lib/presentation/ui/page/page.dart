@@ -11,3 +11,4 @@ export 'return_page.dart';
 export 'history_page.dart';
 export 'qr_code_scanner_page.dart';
 export 'vendor_visit_page.dart';
+export 'profile_page.dart';

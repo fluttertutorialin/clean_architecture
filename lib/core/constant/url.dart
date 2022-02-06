@@ -5,14 +5,10 @@ Create Date: 24-11-21 3:41
 
 const settingAssets = 'assets/setting/setting.json';
 
-const String baseUrl = 'http://apicc.quik-e.mobi/api/';
-const String loginUrl = 'MobexSellerLogin';
+const String baseUrl = '';
+const String loginUrl = '';
 
-var headers = {
-  'KEY_NAME': 'SELLER_KEY',
-  'SELLER_KEY': 'SELLER!#%&(_@\$^*)+',
-  'APP_NAME': 'MOBEXSELLER'
-};
+Map<String, dynamic> headers = {};
 
 //PARAMETER
 String userNameParam = 'USERNAME';

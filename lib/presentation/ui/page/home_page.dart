@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'page.dart';
 import '../../controller/controller.dart';
-import '../../../core/assets/icon.dart';
+import '../../../core/assets/assets.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);

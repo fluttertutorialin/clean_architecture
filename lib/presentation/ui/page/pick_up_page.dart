@@ -6,7 +6,7 @@ Create Date: 24-11-21 3:41
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../core/assets/icon.dart';
+import '../../../core/assets/assets.dart';
 import '../../../core/theme/color.dart';
 import '../widget/itemview/customer_detail_itemview.dart';
 import '../widget/option_widget.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../core/assets/icon.dart';
+import '../../../../core/assets/assets.dart';
 
 class CustomerDetailItemView extends StatelessWidget {
   final String? inquiryUniqueId,

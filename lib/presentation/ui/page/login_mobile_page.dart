@@ -14,7 +14,7 @@ class LoginMobilePage extends StatelessWidget {
         body: SingleChildScrollView(
             child: Column(children: [
       SizedBox(height: Get.height / 4),
-      Text('Application',
+      Text('Clean Architecture',
           style: Get.textTheme.headline5!
               .copyWith(color: Get.theme.primaryColor, fontSize: 22)),
       const SizedBox(height: 50),

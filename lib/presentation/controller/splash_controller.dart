@@ -21,7 +21,7 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    appName = 'Application';
+    appName = 'Clean Architecture';
 
     _splashGet.isLoginReadSession()
         ? _loginNavigation()

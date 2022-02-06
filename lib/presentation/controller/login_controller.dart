@@ -25,6 +25,7 @@ class LoginController extends GetxController {
 
       //SESSION STORE
       _loginGet.userNameWriteSession(loginDetail!.userName!);
+      _loginGet.loginInTimeWriteSession('${DateTime.now()}');
       _loginGet.isLoginWriteSession(true);
 
       //LOGIN SUCCESS NAVIGATION

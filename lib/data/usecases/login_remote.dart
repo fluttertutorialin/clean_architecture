@@ -26,6 +26,9 @@ class LoginRemote implements LoginGet {
   @override
   void userNameWriteSession(String value) =>
       _sessionDataSource.userNameWrite(value);
+
+  @override
+  void loginInTimeWriteSession(String value)  => _sessionDataSource.loginInTimeWrite(value);
 }
 
 class LoginParameterConvert {

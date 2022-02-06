@@ -6,7 +6,7 @@ Create Date: 24-11-21 3:41
 import 'package:get/get.dart';
 import '../controller/controller.dart';
 
-class LoginBinding extends Bindings {
+class DashboardBinding extends Bindings {
   @override
-  void dependencies() => Get.lazyPut(() => LoginController(Get.find()));
+  void dependencies() => Get.lazyPut(() => DashboardController(Get.find()));
 }

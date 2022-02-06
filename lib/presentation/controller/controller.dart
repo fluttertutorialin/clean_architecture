@@ -5,3 +5,5 @@ export 'home_controller.dart';
 export 'total_record_controller.dart';
 export 'pickup_controller.dart';
 export 'visit_history_controller.dart';
+export 'dashboard_controller.dart';
+export 'profile_controller.dart';

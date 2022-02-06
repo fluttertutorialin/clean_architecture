@@ -22,18 +22,20 @@ class RouteCollection {
         name: RouteName.loginUserNameRoute,
         page: () => const LoginUserNamePage()),
     GetPage(
-        name: RouteName.loginMobileRoute,
-        page: () => const LoginMobilePage()),
+        name: RouteName.loginMobileRoute, page: () => const LoginMobilePage()),
     GetPage(name: RouteName.otpVerifyRoute, page: () => OtpVerifyPage()),
     GetPage(
+        binding: DashboardBinding(),
         name: RouteName.dashboardRoute,
         page: () => const DashBoardPage()),
     GetPage(
-        name: RouteName.listDeviceRoute,
-        page: () => const ListDevicePage()),
+        binding: ProfileBinding(),
+        name: RouteName.profileRoute,
+        page: () => const ProfilePage()),
     GetPage(
-        name: RouteName.newDeviceAddRoute,
-        page: () => const NewDevicePage()),
+        name: RouteName.listDeviceRoute, page: () => const ListDevicePage()),
+    GetPage(
+        name: RouteName.newDeviceAddRoute, page: () => const NewDevicePage()),
     GetPage(
         name: RouteName.newVendorAddRoute,
         page: () => const NewVendorAddPage()),
