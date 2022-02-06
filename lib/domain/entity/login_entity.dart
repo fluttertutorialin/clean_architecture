@@ -1,24 +1,28 @@
 import 'package:equatable/equatable.dart';
 
 class LoginEntity extends Equatable {
+  final String? message;
+  final List<LoginDetailEntity?>? loginDetailList;
+
   const LoginEntity({
     required this.message,
-    required this.statusCode,
     required this.loginDetailList,
   });
 
-  final String? message;
-  final String? statusCode;
-  final List<LoginDetailEntity?>? loginDetailList;
+  @override
+  List<Object?> get props {
+    return [
+      message,
+      loginDetailList
+    ];
+  }
 
   @override
-  List<Object?> get props => [message, statusCode, loginDetailList];
+  bool get stringify => true;
 }
 
 class LoginDetailEntity extends Equatable {
-  final String? userId;
-  final String? userName;
-  final String? employeeId;
+  final String? userId, userName, employeeId;
 
   const LoginDetailEntity({this.userId, this.userName, this.employeeId});
 
