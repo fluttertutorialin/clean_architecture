@@ -3,17 +3,18 @@ import '../../core/constant/constant.dart';
 
 class LoginModel extends LoginEntity {
   final String? statusCode;
+  final String? message;
 
   const LoginModel({
-    required String message,
     required List<LoginDetailEntity?>? loginDetailList,
+    this.message,
     this.statusCode,
-  }) : super(message: message, loginDetailList: loginDetailList);
+  }) : super(loginDetailList: loginDetailList);
 
   factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
-      message: json[messageJsonKey],
       loginDetailList: List<LoginDetailModel>.from(
           json[dataJsonKey].map((value) => LoginDetailModel.fromJson(value))),
+      message: json[messageJsonKey],
       statusCode: json[statusCodeJsonKey]);
 }
 

@@ -1,20 +1,15 @@
 import 'package:equatable/equatable.dart';
 
 class LoginEntity extends Equatable {
-  final String? message;
   final List<LoginDetailEntity?>? loginDetailList;
 
   const LoginEntity({
-    required this.message,
     required this.loginDetailList,
   });
 
   @override
   List<Object?> get props {
-    return [
-      message,
-      loginDetailList
-    ];
+    return [loginDetailList];
   }
 
   @override
