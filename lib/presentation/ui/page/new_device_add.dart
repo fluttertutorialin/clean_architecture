@@ -99,9 +99,9 @@ class NewDevicePage extends StatelessWidget {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Select model',
+                                Text('Select mapper',
                                     style: Get.textTheme.bodyText2),
-                                Text('No select model',
+                                Text('No select mapper',
                                     style: Get.textTheme.caption)
                               ]).paddingAll(5.0),
                           Icon(LineIcons.angleDown,

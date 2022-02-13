@@ -3,7 +3,6 @@ Developer: Lakhani kamlesh
 Create Date: 24-11-21 3:41
 */
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'page.dart';
@@ -26,32 +25,6 @@ class HomePage extends GetView<HomeController> {
                     sliver: SliverSafeArea(
                         top: false,
                         sliver: SliverAppBar(
-                            title: Row(children: [
-                              Wrap(children: [
-                                Text('Total ',
-                                    style: context.textTheme.headline1!.merge(
-                                        const TextStyle(
-                                            fontSize: 14,
-                                            color: Colors.white))),
-                                Obx(() => Text(
-                                    '${controller.selectTotalRecord}'
-                                        .padLeft(2, '0'),
-                                    style: context.textTheme.headline5!.merge(
-                                        const TextStyle(
-                                            fontSize: 14,
-                                            color: Colors.white)))),
-                                Obx(() => Text(
-                                    ' ${controller.selectTabName!.toLowerCase()} ',
-                                    style: context.textTheme.caption!.merge(
-                                        const TextStyle(
-                                            fontSize: 14,
-                                            color: Colors.white)))),
-                                Text('${'available'.tr}.',
-                                    style: context.textTheme.headline1!.merge(
-                                        const TextStyle(
-                                            fontSize: 14, color: Colors.white)))
-                              ])
-                            ]),
                             backgroundColor: Get.theme.primaryColor,
                             floating: true,
                             pinned: true,
@@ -65,27 +38,10 @@ class HomePage extends GetView<HomeController> {
                             bottom: _buildHomeTabBar())))
               ];
             },
-            body: Column(children: [
-              Container(
-                  margin: const EdgeInsets.all(10),
-                  child: CupertinoSearchTextField(
-                      onSubmitted: (value) {},
-                      onSuffixTap: () {},
-                      borderRadius: BorderRadius.circular(30),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 5, vertical: 8),
-                      suffixInsets: const EdgeInsets.only(right: 10),
-                      prefixInsets:
-                          const EdgeInsets.only(top: 10, bottom: 6, left: 10),
-                      placeholderStyle:
-                          const TextStyle(fontSize: 16, color: Colors.black45),
-                      style: const TextStyle(fontSize: 16),
-                      placeholder: 'Search')),
-              Expanded(
-                  child: TabBarView(
-                      controller: controller.tabController,
-                      children: [PickUpPage(), ReturnPage()]))
-            ])));
+            body: Expanded(
+                child: TabBarView(
+                    controller: controller.tabController,
+                    children: [PickUpPage(), ReturnPage()]))));
   }
 
   _buildHomeTabBar() {

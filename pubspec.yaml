@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # GetX
   get:
   get_storage:
 
@@ -29,6 +30,8 @@ dependencies:
   dio_helper_flutter: 1.0.13
   dartz:
   dio:
+  network_info_plus:
+  rxdart:
 
 dev_dependencies:
   flutter_test:

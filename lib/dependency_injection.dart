@@ -19,10 +19,14 @@ class DependencyInjection {
     Get.lazyPut<GetStorageImpl>(() => GetStorageImpl(Get.find()), fenix: true);
     Get.lazyPut<SessionDataSource>(() => SessionDataSourceImpl(Get.find()), fenix: true);
 
+    //NETWORK INFO BINDING
+    Get.lazyPut<NetWokInfoRepository>(() => NetWorkInfoImpl(), fenix: true);
+    Get.lazyPut<NetWorkInfoImpl>(() => NetWorkInfoImpl(), fenix: true);
+
     //API BINDING
     Get.lazyPut<ApiProviderRepository>(() => ApiProviderImpl(Get.find()), fenix: true);
     Get.lazyPut<ApiProviderImpl>(() => ApiProviderImpl(Get.find()), fenix: true);
-    Get.lazyPut<RemoteDataSource>(() => RemoteDataSourceImpl(Get.find()), fenix: true);
+    Get.lazyPut<RemoteDataSource>(() => RemoteDataSourceImpl(Get.find(), Get.find()), fenix: true);
 
     //CONTROLLER PASS DATA BINDING
     Get.lazyPut<LoginRemote>(() => LoginRemote(Get.find(), Get.find()), fenix: true);

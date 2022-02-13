@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:get/get.dart';
 import 'package:maps_launcher/maps_launcher.dart';
+import 'package:vendor/core/constant/constant.dart';
 import '../../../core/assets/assets.dart';
 import '../../../core/theme/color.dart';
 
@@ -14,6 +15,7 @@ class OptionWidget extends StatelessWidget {
   final Function()? doneOnClick, postponeOnClick, cancelOnClick;
   final String? doneButtonText, postponeButtonText, mobile, address;
   final bool? isVisibleSubmit;
+  final ListTypeEnum? listTypeEnum;
 
   const OptionWidget(
       {this.doneOnClick,
@@ -24,6 +26,7 @@ class OptionWidget extends StatelessWidget {
       this.mobile,
       this.address,
       this.isVisibleSubmit = true,
+      this.listTypeEnum,
       Key? key})
       : super(key: key);
 
@@ -64,14 +67,16 @@ class OptionWidget extends StatelessWidget {
                       name: postponeButtonText!.toUpperCase(),
                       textStyle: context.textTheme.bodyText1!.copyWith(
                           color: postponeButtonBgColor, fontSize: 12))),
-              const SizedBox(width: 10.0),
-              InkWell(
-                  onTap: cancelOnClick,
-                  customBorder: const CircleBorder(),
-                  child: _optionName(
-                      name: ' cancel '.toUpperCase(),
-                      textStyle: context.textTheme.bodyText1!
-                          .copyWith(color: cancelButtonBgColor, fontSize: 12)))
+              if (listTypeEnum == ListTypeEnum.returnMobile) ...[
+                const SizedBox(width: 10.0),
+                InkWell(
+                    onTap: cancelOnClick,
+                    customBorder: const CircleBorder(),
+                    child: _optionName(
+                        name: ' cancel '.toUpperCase(),
+                        textStyle: context.textTheme.bodyText1!.copyWith(
+                            color: cancelButtonBgColor, fontSize: 12)))
+              ]
             ])
           : const SizedBox()
     ]);

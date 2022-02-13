@@ -16,10 +16,10 @@ void main() async {
   await Get.putAsync(() => GetStorage.init());
   DependencyInjection.init();
 
-  SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+  SystemUiOverlayStyle systemUiOverlayStyle =
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent);
   SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
 
-  //DEFINE BASE URL
   APiKey.baseUrlKey = baseUrl;
 
   runApp(const MyApp());

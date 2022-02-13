@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../core/constant/constant.dart';
+import 'package:line_icons/line_icons.dart';
+import '../widget/widget.dart';
 import '../../controller/controller.dart';
-import '../../../core/route/route_name.dart';
-import '../../../core/theme/color.dart';
-import '../widget/form_button_component.dart';
-import '../widget/text_field_component.dart';
 
 class LoginUserNamePage extends GetView<LoginController> {
   const LoginUserNamePage({Key? key}) : super(key: key);
@@ -15,7 +12,6 @@ class LoginUserNamePage extends GetView<LoginController> {
     return Scaffold(
         body: SingleChildScrollView(
             child: Form(
-                autovalidateMode: loginFormAutoValidateMode,
                 key: controller.formKey,
                 child: Column(children: [
                   SizedBox(height: Get.height / 4),
@@ -28,13 +24,29 @@ class LoginUserNamePage extends GetView<LoginController> {
                   const SizedBox(height: 15),
                   TextFieldComponent(
                       labelText: 'Username',
+                      focusNode: controller.userNameFocusNode,
+                      textInputAction: TextInputAction.next,
+                      maxLength: 50,
                       controller: controller.userNameController),
                   const SizedBox(height: 15),
-                  TextFieldComponent(
+                  Obx(() => TextFieldComponent(
                       labelText: 'Password',
-                      controller: controller.passwordController),
-                  const SizedBox(height: 5),
-                  _loginButtonWidget(),
+                      focusNode: controller.passwordFocusNode,
+                      textInputAction: TextInputAction.done,
+                      obscureText: controller.isPasswordVisible,
+                      maxLength: 10,
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            controller.passwordVisibleChange(
+                                controller.isPasswordVisible);
+                          },
+                          icon: Icon(controller.isPasswordVisible
+                              ? LineIcons.eyeSlashAlt
+                              : LineIcons.eyeAlt)),
+                      controller: controller.passwordController)),
+                  const SizedBox(height: 15),
+                  _loginButtonWidget(context),
+                  const SizedBox(height: 15),
                   Align(
                       alignment: Alignment.topRight,
                       child: InkWell(
@@ -44,16 +56,31 @@ class LoginUserNamePage extends GetView<LoginController> {
                               .paddingOnly(
                                   top: 5, bottom: 5, left: 3, right: 3),
                           onTap: () {
-                            Get.toNamed(RouteName.loginMobileRoute);
+                            FocusScope.of(context).requestFocus(FocusNode());
+                            controller.loginWithMobileNavigation();
                           }))
-                ]).paddingAll(15))));
+                ])).paddingAll(15)));
   }
 
-  _loginButtonWidget() => FormButtonComponent(
-        onPressed: () => controller.loginValidate(),
+  _loginButtonWidget(BuildContext? context) => FormIconLoadingComponent(
+        height: 45,
+        elevation: 0,
+        spaceBetween: 20,
         color: Get.theme.primaryColor,
-        text: Text('SUBMIT',
-            style: Get.textTheme.headline2!
-                .copyWith(color: whiteColor, fontSize: 14)),
-      ).paddingSymmetric(vertical: 10.0);
+        iconColor: Colors.white,
+        valueColor: Get.theme.primaryColor,
+        errorColor: const Color(0xffe0333c),
+        loaderSize: 45,
+        successColor: Get.theme.primaryColor,
+        child: const Text('SUBMIT'),
+        iconData: LineIcons.lock,
+        borderRadius: 20.0,
+        failedIcon: LineIcons.infoCircle,
+        onPressed: () {
+          FocusScope.of(context!).requestFocus(FocusNode());
+          controller.loginValidate();
+        },
+        successIcon: LineIcons.check,
+        controller: controller.loginButtonController,
+      );
 }

@@ -5,6 +5,7 @@ Create Date: 24-11-21 3:41
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/constant/constant.dart';
 import '../../../core/theme/color.dart';
 import '../widget/itemview/customer_detail_itemview.dart';
 import '../widget/option_widget.dart';
@@ -52,9 +53,9 @@ class ReturnPage extends GetView<PickUpController> {
                                     OptionWidget(
                                         mobile: '9586331823',
                                         address: 'Address',
-                                        postponeButtonText:
-                                            ' Postpone ',
+                                        postponeButtonText: ' Postpone ',
                                         doneButtonText: ' Done ',
+                                        listTypeEnum: ListTypeEnum.returnMobile,
                                         doneOnClick: () {
                                          },
                                         postponeOnClick: () {},

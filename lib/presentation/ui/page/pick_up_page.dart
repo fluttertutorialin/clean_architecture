@@ -6,6 +6,7 @@ Create Date: 24-11-21 3:41
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/constant/constant.dart';
 import '../../../core/assets/assets.dart';
 import '../../../core/theme/color.dart';
 import '../widget/itemview/customer_detail_itemview.dart';
@@ -56,6 +57,7 @@ class PickUpPage extends GetView<PickUpController> {
                                         address: 'Address',
                                         postponeButtonText: ' Postpone ',
                                         doneButtonText: ' Done ',
+                                        listTypeEnum: ListTypeEnum.pickUpMobile,
                                         doneOnClick: () {
                                           _pickUpDoneDialog(context,
                                               customerName: 'Lakhani kamlesh',

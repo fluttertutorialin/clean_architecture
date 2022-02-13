@@ -3,12 +3,16 @@ Developer: Lakhani kamlesh
 Create Date: 24-11-21 3:41
 */
 
-const settingAssets = 'assets/setting/setting.json';
-
+//API URL
 const String baseUrl = '';
+
 const String loginUrl = '';
 
-Map<String, dynamic> headers = {};
+
+//MUST BE ALL API CALLING USING DEFAULT HEADER PASS
+var defaultHeader = {
+  '': '',
+};
 
 //PARAMETER
 String userNameParam = 'USERNAME';

@@ -10,7 +10,6 @@ class CustomerDetailItemView extends StatelessWidget {
       mobileBrand,
       address,
       reasonName;
-
   final bool isReason;
 
   const CustomerDetailItemView(
@@ -57,13 +56,9 @@ class CustomerDetailItemView extends StatelessWidget {
       ]),
       const SizedBox(height: 1.0),
       Row(children: [
-        Text('Grade',
-            style: Get.textTheme.caption!
-                .copyWith(fontSize: 14)),
+        Text('Grade', style: Get.textTheme.caption!.copyWith(fontSize: 14)),
         const SizedBox(width: 5.0),
-        Text('A',
-            style: Get.textTheme.headline5!
-                .copyWith(fontSize: 16))
+        Text('A', style: Get.textTheme.headline5!.copyWith(fontSize: 16))
       ]),
       const SizedBox(height: 5.0),
       Text(address!,
